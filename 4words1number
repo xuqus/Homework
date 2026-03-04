@@ -1,0 +1,26 @@
+import random
+
+def random_letter():
+    alphabet = "абвгдеёжзийклмнопрстуфхцчшщъыьэюя"
+    return random.choice(alphabet)
+
+user_str = input("Введите строку минимум из 4 слов: ")
+words = user_str.split()    #разделяем
+if len(words) < 4:
+    print("Нужно ввести минимум 4 слова!")
+else:
+    result = []
+
+    for word in words:
+        word_len = len(word)
+        if word.isdigit():
+            new_word = ''
+            for i in range(int(word)):      #повторяем word количество раз
+                new_word += random_letter()
+            result.append([new_word, str(word_len)])
+        else:
+            result.append([word, str(word_len)])
+
+    print("\nРезультат (слово, длина):")
+    for item in result:
+        print(f"{item[0]}, {item[1]}")
