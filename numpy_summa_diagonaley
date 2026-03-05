@@ -1,0 +1,9 @@
+import numpy as np
+
+matrix = np.array([[4, 1, 4],
+                   [2, 0, 2],
+                   [2, 2, 2]])
+
+reverse_diag= matrix[range(3), range(2, -1, -1)]    #идем от 2 индекса к 0 с шагом -1
+summa_diag = np.sum(reverse_diag)                   #находим сумму
+print(summa_diag)
