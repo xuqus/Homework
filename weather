@@ -1,0 +1,32 @@
+import numpy as np
+
+class Weather:
+    def __init__(self, temp, humidity, pressure, snowy_cover):
+        self.temp = temp
+        self.humidity = humidity
+        self.pressure = pressure
+        self.snowy_cover = snowy_cover
+
+day_1 = Weather(-14, 75, 796, 22)
+day_2 = Weather(-5, 80, 780, 24)
+day_3 = Weather(0, 90, 770, 40)
+day_4 = Weather(-10, 70, 795, 35)
+
+all_temp = [day_1.temp, day_2.temp, day_3.temp, day_4.temp]
+all_humidity = [day_1.humidity, day_2.humidity, day_3.humidity, day_4.humidity]
+all_pressure = [day_1.pressure, day_2.pressure, day_3.pressure, day_4.pressure]
+all_snowy_cover = [day_1.snowy_cover, day_2.snowy_cover, day_3.snowy_cover, day_4.snowy_cover]
+
+max_temp = np.max(all_temp)              #макс температура
+max_temp_day = np.argmax(all_temp) + 1   #какой по счету день, +1 для счета (1,2,3,4)
+
+min_humidity = np.min(all_humidity)     #минимальная влажность
+
+avg_pressure = np.mean(all_pressure)     #среднее давление
+
+median_snow = np.median(all_snowy_cover) #медиана снежного покрова
+
+print(f"Максимальная температура: {max_temp}°C, была в {max_temp_day}-й день.")
+print(f"Минимальная влажность: {min_humidity}%.")
+print(f"Среднее давление за 4 дня: {avg_pressure} мм рт.ст.")
+print(f"Медиана высоты снежного покрова: {median_snow} см.")
