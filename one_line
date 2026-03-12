@@ -1,0 +1,1 @@
+import random; print([i if i % 2 == 0 else 0 for i in [random.randint(1,30) for j in range(10)]])
