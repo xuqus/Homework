@@ -1,0 +1,17 @@
+    # Из десятичного в двоичный код
+input_number=int(input("Введите десятичное число: "))
+number=input_number             #создаем копию которую будем делить
+result=""
+while number>=1:
+    result=str(number%2) +result    #записываем в result для правильного порядка
+    number=number//2
+print(f"Число {input_number} в двоичной системе: {result}")
+
+    # Из двоичного в десятичный код
+number_2 = input("Введите двоичное число: ")    #str чтоб узнать количество повторений в цикле
+result_2 = 0
+
+for i in range(len(number_2)):
+    result_2 = result_2 * 2 + int(number_2[i])
+print(f"Число {number_2} в десятичной системе: {result_2}")
+
