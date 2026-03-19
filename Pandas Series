@@ -1,0 +1,36 @@
+import pandas as pd
+
+mass_series = pd.Series([26,30,64,42,52])
+
+#1
+print("Значения: ", mass_series.values)
+
+#2
+print("\nИндексы: ", mass_series.index)                  #начальный, конечный, шаг
+
+#3
+print("\nПервые 3 элемента:\n", mass_series.head(3))
+
+#4
+print("\nПоследние 2 элемента:\n", mass_series.tail(2))
+
+#5
+print("\nСреднее арифметическое: ", mass_series.mean())
+
+#6
+print("\nСумма чисел: ", mass_series.sum())
+
+#7
+print("\nМинимальное число: ", mass_series.min())
+
+#8
+print("\nМаксимальное число: ", mass_series.max())
+
+#9
+print("\nКоличество элементов: ", mass_series.count())
+
+#10
+print("\nУникальные числа: ", mass_series.unique())
+
+#11
+print("\nКоличество уникальных чисел: ", mass_series.nunique())
