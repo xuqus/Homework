@@ -1,0 +1,27 @@
+alfavit = [' ', 'а', 'б', 'в', 'г', 'д', 'е', 'ё', 'ж', 'з', 'и', 'й', 'к', 'л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у',
+           'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ъ', 'ы', 'ь', 'э', 'ю', 'я']
+
+user_pred = input("Введите предложение: ")
+
+result = ""
+for char in user_pred.lower():
+    if char in alfavit:     #проверяем есть ли символ в алфавите
+        index_slova = alfavit.index(char)
+
+        if index_slova == 0:
+            binary = "000000"
+        else:
+            binary = ""
+            bin_letter = index_slova
+            while bin_letter >= 1:         #перевод в двоичное число
+                binary = str(bin_letter % 2) + binary
+                bin_letter = bin_letter // 2
+
+            while len(binary) < 6:    #Добавляем нули если длина менеше 6
+                binary = "0" + binary
+
+        result += binary + " "
+    else:
+        result += char
+
+print(f"\nЗакодированное сообщение: {result}")
