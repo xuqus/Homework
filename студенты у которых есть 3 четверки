@@ -1,0 +1,18 @@
+
+#11
+# print("\nСтуденты у которых есть 3 четверки:")
+# for i in range(len(df)):
+#     count4 = 0
+#     if df.loc[i, "Предмет1"] == 4:
+#         count4 +=1
+#     if df.loc[i, "Предмет2"] == 4:
+#         count4 +=1
+#     if df.loc[i, "Предмет3"] == 4:
+#         count4 +=1
+#     if df.loc[i, "Предмет4"] == 4:
+#         count4 +=1
+#     if df.loc[i, "Предмет5"] == 4:
+#         count4 +=1
+# 
+#     if count4 == 3:
+#         print(df.loc[i, "name"])
