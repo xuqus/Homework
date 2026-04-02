@@ -1,0 +1,26 @@
+import pandas as pd
+
+df = pd.read_csv(r"C:\Users\79995\Desktop\zadanie1.csv", sep=";", encoding="cp1251")
+
+student_col = "ФИО"
+ocenki_cols = ["ПРЕДМЕТ1", "ПРЕДМЕТ2", "ПРЕДМЕТ3","ПРЕДМЕТ4","ПРЕДМЕТ5"]
+
+# ПРЕВРАЩАЕМ ОЦЕНКИ В ЧИСЛА
+for col in ocenki_cols:
+    df[col] = pd.to_numeric(df[col])
+
+scores = []
+for i in range(len(df)):
+    ocenki = []
+    for col in ocenki_cols:
+        ocenki.append(df.loc[i, col])
+    avg = round(sum(ocenki) / len(ocenki), 2) if ocenki else 0
+    scores.append(avg)
+
+df["Средний балл"] = scores
+
+# СОРТИРУЕМ
+df_sorted = df.sort_values("Средний балл", ascending=False)
+
+# ВЫВОДИМ
+print(df_sorted[[student_col] + ocenki_cols + ["Средний балл"]].to_string(index=False))
