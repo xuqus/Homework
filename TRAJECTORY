@@ -1,0 +1,30 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+speed = 20
+speed_ms = speed * 1000 / 3600
+
+cos45 = 0.7071
+sin45 = 0.7071
+
+V0x = speed_ms * cos45
+V0y = speed_ms * sin45
+
+g = 9.81
+t_max = 2 * V0y / g
+t = np.linspace(0, t_max, 100)
+
+x = V0x * t
+y = V0y * t - (g * t**2) / 2        # y = V₀ᵧ · t − (g · t²) / 2
+plt.plot(x, y, linewidth=2, color = "red")
+
+
+plt.axhline(0, color='black', linewidth=1)      # горизонтальная ось
+plt.axvline(0, color='black', linewidth=1)      # вертикальная ось
+plt.xlabel("X, м")
+plt.ylabel("Y, м")
+plt.title("Траектория тела, брошенного под углом 45 градусов")
+plt.grid(True)
+plt.axis("equal")   #для правильного соотношения
+
+plt.show()
