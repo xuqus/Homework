@@ -1,0 +1,28 @@
+bank_capital = 10000
+
+avto_credit = 2000000
+potreb_credit = 20000
+biz_credit = 20000000
+
+rates = [20,26,15] #проценты по кредитам
+# Проценты по каждому кредиту за год
+proc1 = avto_credit * rates[0] / 100
+proc2 = potreb_credit * rates[1] / 100
+proc3 = biz_credit * rates[2] / 100
+
+all_dohod = proc1 + proc2 + proc3
+
+sum_of_credits = avto_credit + potreb_credit + biz_credit
+cb_proc = sum_of_credits * 5 / 100          #проценты ЦБ
+
+
+result = bank_capital + all_dohod - cb_proc     # 10000 + проценты от кредитов - проценты цб
+print("Доход банка от заёмщиков за год:")
+print(f"За первый кредит: {proc1} рублей")
+print(f"За второй кредит: {proc2} рублей")
+print(f"За третий кредит: {proc3} рублей")
+
+print(f"\nВсего доход: {all_dohod} руб.")
+
+print(f"\nПроценты ЦБ: {cb_proc} руб.")
+print(f"\nИтоговая сумма банка: {result} руб.")
