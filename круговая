@@ -1,0 +1,6 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+name = pd.Series({"Чувашия":1159768,"Мордовия":765891,"Нижегородская область":3029421,"Республика Татарстан":4019606,"Республика Марий Эл":666202,"Ульяновская область":1165334})
+plt.pie(name,labels=name.index, autopct='%1.1f%%') 
+plt.title("Население Чувашии и граничащих регионов")
+plt.show()
