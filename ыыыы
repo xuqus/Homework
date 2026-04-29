@@ -1,0 +1,22 @@
+import urllib.request
+import json
+from prettytable import PrettyTable
+
+url = "http://jsonplaceholder.typicode.com/users"
+response = urllib.request.urlopen(url)
+data = json.loads(response.read().decode())
+
+table = PrettyTable()
+table.field_names = ["ID", "Name", "Username", "Email", "Phone", "Website", "City"]
+
+for user in data:
+    table.add_row([
+        user["id"],
+        user["name"],
+        user["username"],
+        user["email"],
+        user["phone"],
+        user["website"],
+        user["address"]["city"]
+    ])
+print(table)
