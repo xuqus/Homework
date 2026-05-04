@@ -1,0 +1,21 @@
+import requests
+import json
+from prettytable import PrettyTable
+
+url = f"http://api.openweathermap.org/data/2.5/weather?q=Shumerlya&appid=ee09339b6bdb545bf0949fbd6d655155&units=metric&lang=ru"
+
+response = requests.get(url)
+data = response.json()
+
+table = PrettyTable(["Город", "Температура", "Ощущается", "Влажность", "Давление", "Ветер", "Описание"])
+table.add_row([
+    data["name"],
+    f"{data['main']['temp']}°C",
+    f"{data['main']['feels_like']}°C",
+    f"{data['main']['humidity']}%",
+    f"{data['main']['pressure']} гПа",
+    f"{data['wind']['speed']} м/с",
+    data["weather"][0]["description"]
+])
+
+print(table)
