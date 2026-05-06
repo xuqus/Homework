@@ -1,0 +1,38 @@
+# # 2 задание. Найти наибольшее число, сумма четных цифр которого кратна 3
+# M = int(input("Введите M: "))
+# N = int(input("Введите N: "))
+#
+# result = 0
+#
+# for i in range(M, N + 1):
+#     s = 0
+#     for j in str(i):
+#         if int(j) % 2 == 0:
+#             s += int(j)
+#     if s % 3 == 0:
+#         result = i
+#
+# print(result)
+
+# # Задание 3. Найти максимальную длину цепочки соседних чисел, в которых произведение цифр совпадает (81, 42 = 2 например) 
+# n = int(input("Введите количество чисел: "))
+# numbers = input("Введите числа: ").split()
+# 
+# proiz = []
+# for i in range(n):
+#     num = numbers[i]
+#     a = int(num[0])
+#     b = int(num[1])
+#     proiz.append(a * b)
+# 
+# 
+# max_count = 0
+# for i in range(len(proiz)):
+#     count = 1
+#     for j in range(i + 1, len(proiz)):
+#         if proiz[i] == proiz[j]:
+#             count += 1
+#     if count > max_count:
+#         max_count = count
+# 
+# print(max_count)
