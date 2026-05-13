@@ -1,0 +1,56 @@
+# Задача 4. Найти максимальное чётное n-значное число в девят системе счисления, троичная запись которого содержит k двоек и m нулей (значащих)
+nkm = input("Введите n, k, m: ")
+razd = nkm.split()
+n = int(razd[0])
+k = int(razd[1])
+m = int(razd[2])
+
+# максимальное n-значное число в девятичной системе
+max_num = int('8' * n, 9)
+
+for num in range(max_num, -1, -1):
+    # проверяем чётность
+    ost = num % 9
+    if ost % 2 != 0:
+        continue
+
+    # перевод в троичную систему
+    num_copy = num
+    troich = ""
+    if num_copy == 0:
+        troich = "0"
+    else:
+        while num_copy > 0:
+            troich = str(num_copy % 3) + troich
+            num_copy //= 3
+
+    # считаем двойки
+    count_2 = 0
+    for ch in troich:
+        if ch == '2':
+            count_2 += 1
+    if count_2 != k:
+        continue
+
+    # считаем значащие нули
+    zeros = 0
+    for i in range(1, len(troich)):
+        if troich[i] == '0':
+            zeros += 1
+    if zeros != m:
+        continue
+
+    # перевод в девятичную систему для вывода
+    res = ""
+    num_copy2 = num
+    if num_copy2 == 0:
+        res = "0"
+    else:
+        while num_copy2 > 0:
+            res = str(num_copy2 % 9) + res
+            num_copy2 //= 9
+
+    print(res)
+    break
+else:
+    print(0)
