@@ -1,0 +1,78 @@
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from scipy.stats import uniform
+#
+# # x = np.linspace(a, b, 100) # [ 1.  2.  3.  4.  5.  6.  7.  8.  9. 10.]
+# x = np.linspace(-10, 100, 100)
+#
+# a = 0     #начало интервала
+# b = 50
+#
+#
+#
+# y_pdf = uniform.pdf(x, loc=a,scale=b-a)
+# # pdf показывает насколько вероятно значение x в данной точке
+# y_cdf = uniform.cdf(x, loc=a,scale=b-a)
+# plt.plot(x, y_pdf, label = "PDF (плотность)")
+# print(y_pdf)
+# plt.plot(x, y_cdf, label = "CDF (распределение)", color = "red")
+# # вероятность того, что случайное число будет <= x
+# print(y_cdf)
+# plt.show()
+
+#               !!!!!!!!!!!!! ПРИМЕР НА ПРАКТИКЕ !!!!!!!!!!!!!!!
+# import numpy as np
+# import matplotlib.pyplot as plt
+# from scipy.stats import uniform
+#
+# # Параметры
+# a = 0
+# b = 10
+# scale = b - a
+#
+# # x — от -5 до 15, чтобы увидеть поведение вне интервала
+# x = np.linspace(-5, 15, 100)
+#
+# y_pdf = uniform.pdf(x, loc=a, scale=scale)
+# y_cdf = uniform.cdf(x, loc=a, scale=scale)
+#
+# plt.plot(x, y_pdf, label="PDF")
+# plt.plot(x, y_cdf, label="CDF")
+#
+# plt.axvline(a, color="gray", linestyle="--", label=f"a = {a}")  #ГРАНИЦЫ
+# plt.axvline(b, color="gray", linestyle="--", label=f"b = {b}")  #ГРАНИЦЫ
+#
+# mean, dispersiya = uniform.stats(loc=a, scale=b-a, moments='mv')
+# plt.axvline(mean, color='red', linestyle='-', linewidth=2, label=f'Среднее = {mean}')
+#
+#
+# print(f"Дисперсия: {dispersiya:.2f}") #округляем до 2 знаков
+# plt.legend()
+# plt.grid()
+# plt.show()
+
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import uniform
+from scipy.signal import chirp
+
+a = 0
+b = 1
+x = np.linspace(-0.5, 1.5, 10000)
+y = uniform.pdf(x, loc=a, scale=b - a)
+
+plt.plot(x, y, linewidth = 3)
+plt.title("Плотность")
+plt.xlabel("x")
+plt.grid()
+plt.show()
+
+
+t = np.linspace(6, 10, 500)
+w = chirp(t, f0=4, f1=2, t1=5, method="linear")
+plt.plot(t, w)
+plt.title("Линейный импульс")
+plt.xlabel("Время в секундах")
+plt.ylabel("Амплитуда")
+plt.grid()
+plt.show()
