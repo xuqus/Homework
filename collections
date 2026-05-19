@@ -1,0 +1,27 @@
+from collections import defaultdict, Counter, deque, namedtuple
+
+# словарь, который не ломается при несуществующем ключе (создает его)
+d = defaultdict(int)
+for ch in "алфавит":
+    d[ch] += 1 # счет для каждого символа
+print(dict(d))
+
+# Counter — считает количество символов автоматически
+print(Counter("счииииитаем количество символов").most_common())
+
+# deque — добавляет символы с двух сторон
+mass = deque(["люблю", "зеленый"])
+mass.appendleft("Я") # слева
+mass.append("чай")   # справа
+print(mass)
+
+student = namedtuple('student', ['name', 'age', 'group'])
+st_1 = student('Краснов Артем', 18, "3ИП")
+st_2 = student("Иванов Иван", 19, "4ИП")
+
+
+print(f"Имя:  {st_1.name}      возраст:  {st_1.age}      группа:  {st_1.group}")
+print(f"Имя:  {st_2.name}        возраст:  {st_2.age}      группа:  {st_2.group}")
+
+
+print(f"\n\n\n<౦ ‸ ౦'>__" )
