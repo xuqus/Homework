@@ -1,4 +1,4 @@
-
+import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -15,3 +15,22 @@ Graph(lambda x: 5*x,   0, 10, "y = 5x", "blue")
 Graph(lambda x: x**2,  0, 10, "y = x**2", "pink")
 
 plt.show()
+
+
+
+
+
+class StudentTable:
+    def __init__(self, name, ocenki):
+        self.df = pd.DataFrame({"Студент": name, "Оценка": ocenki})
+
+    def show(self):
+        print(self.df)
+    def average(self):
+        print(f"     Средний балл: {self.df['Оценка'].mean()}")
+
+students = StudentTable(["Владимиров Иван", "Зайцев Ярослав", "Михайлов Алексей", "Краснов Олег"],
+                        [5, 3, 4, 2])
+
+students.show()
+students.average()
