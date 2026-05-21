@@ -1,0 +1,17 @@
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+class Graph:
+    def __init__(self, func, a, b, label, color):
+        x = np.linspace(a, b, 100)
+        y = func(x)
+        plt.plot(x, y, label=label, color=color, linewidth=2)
+        plt.grid(True)
+        plt.legend()
+
+Graph(lambda x: 2*x,   0, 10, "y = 2x", "red")
+Graph(lambda x: 5*x,   0, 10, "y = 5x", "blue")
+Graph(lambda x: x**2,  0, 10, "y = x**2", "pink")
+
+plt.show()
