@@ -1,0 +1,38 @@
+# СЕРВЕР
+
+import asyncio
+import websockets
+
+async def handler(websocket):
+    count = 0
+    async for message in websocket:
+        if message == "END":
+            break
+        if int(message) % 2 == 0:
+            count += 1
+
+    await websocket.send(f"Количество чётных чисел: {count}")
+async def main():
+    async with websockets.serve(handler, "localhost", 1126):
+        await asyncio.Future()
+
+asyncio.run(main())
+
+# КЛИЕНТ
+
+import asyncio
+import websockets
+
+nums = [23, 126, 95, 2, 64, 82, 53, 23]
+
+async def client():
+    async with websockets.connect("ws://localhost:1126") as ws:
+        for num in nums:
+            await ws.send(str(num))
+        await ws.send("END")    #обозначаем конец чтоб он вывел результат
+
+        response = await ws.recv()
+        print(response)
+
+
+asyncio.run(client())
